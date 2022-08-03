@@ -6,9 +6,9 @@ import { BioSection, BioYear } from '../components/bio';
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
 import { GridItem } from '../components/grid-item';
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp } from 'react-icons/io5';
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp, IoCodeSlash } from 'react-icons/io5';
 import thumbYouTube from '../public/images/links/youtube.png';
-import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png';
+import thumbInkdrop from '../public/images/projects/inkdrop_eyecatch.png';
 import Image from 'next/image';
 
 const ProfileImage = chakra(Image, {
@@ -23,7 +23,10 @@ const Home = () => (
           <Text bgGradient={useColorModeValue('linear(to-r, #025091, #71c5ee)', 'linear(to-r, #fbc8d5, #9896f0, )')} bgClip="text" fontSize="5xl" fontWeight="extrabold">
             Victor Prado Trujillo
           </Text>
-          <p>WebDev( JavaScript / ⚛ React / )</p>
+          <Text fontWeight="bold" fontSize="2xl">
+            Frontend Developer
+          </Text>
+          <p>JavaScript/ TypeScript/ React/ Next/ SQL/ NoSQL/ RestAPI/ GraphQl.</p>
         </Box>
         <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
           <Box borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" w="100px" h="100px" display="inline-block" borderRadius="full" overflow="hidden">
@@ -41,9 +44,14 @@ const Home = () => (
           About
         </Heading>
         <Paragraph>
-          Victor is a selftought student at Platzi and many other resources around the web. Freelancer frontend developer who loves smooth animations and incredible UI. <br></br> <br></br> Started on
-          the thech industry on 2019
+          I was always curious about how things are build but I never realize that one day I would be building for many people. <br></br> <br></br>Victor is a selftought student at Platzi and many
+          other resources around the web. Freelancer frontend developer who loves smooth animations and incredible UI. <br></br> <br></br> Started on the thech industry on 2019
         </Paragraph>
+
+        <Heading as="h3" variant="section-title">
+          Philosophy
+        </Heading>
+        <Paragraph>Create and deliver amazing expiriences with intuitive solutions on the web.</Paragraph>
 
         <Box align="center" my={4}>
           <NextLink href="/projects" passHref scroll={false}>
@@ -56,24 +64,16 @@ const Home = () => (
 
       <Section delay={0.2}>
         <Heading as="h3" variant="section-title">
-          Stack
+          What I do
         </Heading>
         <BioSection>
-          <BioYear>JavaScript</BioYear>
-          Born in Osaka (大阪), Japan.
+          <BioYear>Frontend Development</BioYear>
         </BioSection>
+        I use JavaScript to interact with users and reach their happines
         <BioSection>
-          <BioYear>React</BioYear>
-          Completed the Master&apos;s Program in the Graduate School of Information Science at Nara Institute of Science and Technology (奈良先端科学技術大学院大学情報科学研究科修士課程)
+          <BioYear>UX/UI Design</BioYear>
         </BioSection>
-        <BioSection>
-          <BioYear>Next.js</BioYear>
-          Worked at Yahoo! Japan (ヤフー株式会社入社)
-        </BioSection>
-        <BioSection>
-          <BioYear>Firebase</BioYear>
-          Working as a freelancer
-        </BioSection>
+        I design fluid and beautiful interfaces for web. Great interfaces and experiences wins customers trust and helps you do your business well. I make sure your design is up to that standard.
       </Section>
 
       <Section delay={0.3}>
@@ -122,9 +122,6 @@ const Home = () => (
         </Box>
 
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
-          <GridItem href="https://www.youtube.com/devaslife" title="Dev as Life" thumbnail={thumbYouTube}>
-            My YouTube channel (&gt;100k subs)
-          </GridItem>
           <GridItem href="https://www.inkdrop.app/" title="Inkdrop" thumbnail={thumbInkdrop}>
             A Markdown note-taking app
           </GridItem>

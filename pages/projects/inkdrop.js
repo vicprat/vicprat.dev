@@ -4,7 +4,7 @@ import { Title, WorkImage, Meta } from '../../components/work';
 import P from '../../components/paragraph';
 import Layout from '../../components/layouts/article';
 
-const Work = () => (
+const Project = () => (
   <Layout title="Inkdrop">
     <Container>
       <Title>
@@ -34,8 +34,8 @@ const Work = () => (
         </ListItem>
       </List>
 
-      <WorkImage src="/images/works/inkdrop_01.png" alt="Inkdrop" />
-      <WorkImage src="/images/works/inkdrop_02.png" alt="Inkdrop" />
+      <WorkImage src="/images/projects/inkdrop_01.png" alt="Inkdrop" />
+      <WorkImage src="/images/projects/inkdrop_02.png" alt="Inkdrop" />
       <AspectRatio maxW="640px" ratio={1.7} my={4}>
         <iframe
           src="https://www.youtube.com/embed/-qBavwqc_mY"
@@ -49,5 +49,5 @@ const Work = () => (
   </Layout>
 );
 
-export default Work;
+export default Project;
 export { getServerSideProps } from '../../components/chakra';
