@@ -85,7 +85,7 @@ const Home = () => (
 
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
-          Let's get a coffee ☕
+          Grab a coffee together☕
         </Heading>
 
         <Box maxW="container.md" p={8}>
