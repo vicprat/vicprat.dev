@@ -96,7 +96,7 @@ const Home = () => (
 
       <Section>
         <Heading as="h3" variant="section-title">
-          Bolog
+          Blog
         </Heading>
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
           <LinkItem href="/blog/react-path">

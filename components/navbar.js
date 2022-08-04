@@ -56,7 +56,7 @@ const Navbar = (props) => {
                   <MenuItem as={Link}>Projects</MenuItem>
                 </NextLink>
                 <NextLink href="/posts" passHref>
-                  <MenuItem as={Link}>Posts</MenuItem>
+                  <MenuItem as={Link}>Blog</MenuItem>
                 </NextLink>
                 <MenuItem as={Link} href="https://github.com/vicprat">
                   Github
