@@ -6,10 +6,21 @@ import { BioSection, BioYear } from '../components/bio';
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
 import { GridItem } from '../components/grid-item';
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp, IoCodeSlash } from 'react-icons/io5';
-import thumbYouTube from '../public/images/links/youtube.png';
-import thumbInkdrop from '../public/images/projects/inkdrop_eyecatch.png';
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp } from 'react-icons/io5';
+import thumbReact from '../public/images/projects/reactjs.jpg';
 import Image from 'next/image';
+
+const LinkItem = ({ href, path, target, children, ...props }) => {
+  const active = path === href;
+  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900');
+  return (
+    <NextLink href={href} passHref scroll={false}>
+      <Link p={2} bg={active ? 'grassTeal' : undefined} color={active ? '#202023' : inactiveColor} target={target} {...props}>
+        {children}
+      </Link>
+    </NextLink>
+  );
+};
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
@@ -80,12 +91,32 @@ const Home = () => (
         <Heading as="h3" variant="section-title">
           More about me
         </Heading>
-        <Paragraph>Ocasional paragrapher, rock climber, nature and dog lover,</Paragraph>
+        <Paragraph>Ocasional photographer, rock climber, nature and dog lover.</Paragraph>
+      </Section>
+
+      <Section>
+        <Heading as="h3" variant="section-title">
+          Bolog
+        </Heading>
+        <SimpleGrid columns={[1, 2, 2]} gap={6}>
+          <LinkItem href="/blog/react-path">
+            <GridItem title="My React js learning path and expirience" thumbnail={thumbReact}>
+              How to start on the web develpment journey.
+            </GridItem>
+          </LinkItem>
+        </SimpleGrid>
+        <Box align="center" my={4}>
+          <NextLink href="/blog" passHref scroll={false}>
+            <Button rightIcon={<ChevronRightIcon />} colorScheme="blue">
+              Popular posts
+            </Button>
+          </NextLink>
+        </Box>
       </Section>
 
       <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
-          Grab a coffee together☕
+          ☕ Let&apos;s grab a coffee together.
         </Heading>
 
         <Box maxW="container.md" p={8}>
@@ -119,20 +150,6 @@ const Home = () => (
               </Link>
             </ListItem>
           </List>
-        </Box>
-
-        <SimpleGrid columns={[1, 2, 2]} gap={6}>
-          <GridItem href="https://www.inkdrop.app/" title="Inkdrop" thumbnail={thumbInkdrop}>
-            A Markdown note-taking app
-          </GridItem>
-        </SimpleGrid>
-
-        <Box align="center" my={4}>
-          <NextLink href="/posts" passHref scroll={false}>
-            <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-              Popular posts
-            </Button>
-          </NextLink>
         </Box>
       </Section>
     </Container>

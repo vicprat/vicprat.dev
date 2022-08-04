@@ -33,8 +33,8 @@ const Navbar = (props) => {
           <LinkItem href="/projects" path={path}>
             Projects
           </LinkItem>
-          <LinkItem href="/posts" path={path}>
-            Posts
+          <LinkItem href="/blog" path={path}>
+            Blog
           </LinkItem>
           <LinkItem target="_blank" href="https://github.com/vicprat" path={path} display="inline-flex" alignItems="center" style={{ gap: 4 }} pl={2}>
             <IoLogoGithub />

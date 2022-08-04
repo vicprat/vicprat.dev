@@ -3,7 +3,7 @@ import Layout from '../components/layouts/article';
 import Section from '../components/section';
 import { ProjectGridItem } from '../components/grid-item';
 
-import thumbInkdrop from '../public/images/projects/inkdrop_eyecatch.png';
+import thumbPortfolio from '../public/images/projects/portfolio_eyecatch.png';
 
 const Projects = () => (
   <Layout title="Projects">
@@ -14,8 +14,8 @@ const Projects = () => (
 
       <SimpleGrid columns={[1, 1, 2]} gap={8}>
         <Section>
-          <ProjectGridItem id="inkdrop" title="Inkdrop" thumbnail={thumbInkdrop}>
-            A Markdown note-taking app with 100+ plugins, cross-platform and encrypted data sync support
+          <ProjectGridItem id="portfolio" title="JAMStack Portfolio" thumbnail={thumbPortfolio}>
+            A web app built with Next.js, Contentful CMS and GraphQl with smooth animations and clean design.
           </ProjectGridItem>
         </Section>
       </SimpleGrid>
