@@ -2,11 +2,12 @@ import NextLink from 'next/link';
 import { Text, Link, Container, Heading, Box, SimpleGrid, Button, List, ListItem, useColorModeValue, chakra } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import Paragraph from '../components/paragraph';
+import AnimatedGradientText from '../components/animated-gradient-text';
 import { BioSection, BioYear } from '../components/bio';
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
 import { GridItem } from '../components/grid-item';
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp } from 'react-icons/io5';
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp, IoMail } from 'react-icons/io5';
 import thumbReact from '../public/images/projects/reactjs.jpg';
 import Image from 'next/image';
 
@@ -28,16 +29,14 @@ const ProfileImage = chakra(Image, {
 
 const Home = () => (
   <Layout>
-    <Container>
+    <Container maxW="4xl" mt={6}>
       <Box display={{ md: 'flex' }}>
         <Box flexGrow={1}>
-          <Text bgGradient={useColorModeValue('linear(to-r, #025091, #71c5ee)', 'linear(to-r, #fbc8d5, #9896f0, )')} bgClip="text" fontSize="5xl" fontWeight="extrabold">
-            Victor Prado Trujillo
-          </Text>
+          <AnimatedGradientText>Victor Prado Trujillo</AnimatedGradientText>
           <Text fontWeight="bold" fontSize="2xl">
             Frontend Developer
           </Text>
-          <p>JavaScript/ TypeScript/ React/ Next/ SQL/ NoSQL/ RestAPI/ GraphQl.</p>
+          <p>JavaScript | TypeScript | React | Next | SQL | NoSQL | RestAPI | GraphQl.</p>
         </Box>
         <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
           <Box borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" w="100px" h="100px" display="inline-block" borderRadius="full" overflow="hidden">
@@ -122,9 +121,9 @@ const Home = () => (
         <Box maxW="container.md" p={8}>
           <List>
             <ListItem>
-              <Link href="https://github.com/vicprat" target="_blank">
-                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoGithub />}>
-                  @vicprat
+              <Link href="mailto:contact@vicprat.dev" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoMail />}>
+                  contact@vicprat.dev
                 </Button>
               </Link>
             </ListItem>
@@ -136,16 +135,23 @@ const Home = () => (
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="https://platzi.com/p/vicprat182/" target="_blank">
-                <Button variant="ghost" colorScheme="blue" leftIcon={<IoHeartSharp />}>
-                  Platzi
+              <Link href="https://instagram.com/vic_prat" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoInstagram />}>
+                  @vic_prat
                 </Button>
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="https://instagram.com/vic_prat" target="_blank">
-                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoInstagram />}>
-                  @vic_prat
+              <Link href="https://github.com/vicprat" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoGithub />}>
+                  @vicprat
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://platzi.com/p/vicprat182/" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoHeartSharp />}>
+                  Platzi
                 </Button>
               </Link>
             </ListItem>

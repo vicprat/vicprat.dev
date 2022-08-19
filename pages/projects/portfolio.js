@@ -8,7 +8,7 @@ import Section from '../../components/section';
 
 const Project = () => (
   <Layout title="JAMStack Portfolio">
-    <Container>
+    <Container maxW="4xl">
       <Title>
         JAMStack <Badge>2022-</Badge>
       </Title>
@@ -16,7 +16,7 @@ const Project = () => (
       <List ml={4} my={4}>
         <ListItem>
           <Meta>Website</Meta>
-          <Link href="https://vicprat-dev.vercel.app/">
+          <Link href="https://vicprat.dev/">
             https://www.vicprat.dev/ <ExternalLinkIcon mx="2px" />
           </Link>
         </ListItem>
