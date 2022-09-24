@@ -12,11 +12,12 @@ const AnimatedGradientText = ({ children }) => (
   <Text
     as={motion.text}
     animation={animation}
-    bgSize="500%"
-    bgGradient={useColorModeValue('linear-gradient(-45deg, #71c5ee, #71c5ee, #025091, #025091,)', 'linear-gradient(-45deg, #ac81a3, #ac81a3, #fbc8d5, #fbc8d5)')}
+    bgSize="350%"
+    bgGradient={useColorModeValue('linear-gradient(-45deg, #09009F, #71c5ee, #048A9A, #00FF95,)', 'linear-gradient(-45deg, #5598DE, #7F87FF, #F65AAD, #EC3D43)')}
     bgClip="text"
     fontSize="5xl"
     fontWeight="extrabold"
+    textAlign="justify"
   >
     {children}
   </Text>

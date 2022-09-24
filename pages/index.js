@@ -7,7 +7,7 @@ import { BioSection, BioYear } from '../components/bio';
 import Layout from '../components/layouts/article';
 import Section from '../components/section';
 import { GridItem } from '../components/grid-item';
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp, IoMail } from 'react-icons/io5';
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp, IoMail, IoLogoLinkedin } from 'react-icons/io5';
 import thumbReact from '../public/images/projects/reactjs.jpg';
 import Image from 'next/image';
 
@@ -29,24 +29,22 @@ const ProfileImage = chakra(Image, {
 
 const Home = () => (
   <Layout>
-    <Container maxW="4xl" mt={6}>
-      <Box display={{ md: 'flex' }}>
-        <Box flexGrow={1}>
-          <AnimatedGradientText>Victor Prado Trujillo</AnimatedGradientText>
-          <Text fontWeight="bold" fontSize="2xl">
-            Frontend Developer
+    <Container maxW="4xl" mt={8}>
+      <Box height="70vh" display={{ md: 'flex' }} alignItems="center" justifyContent="center">
+        <Box m={6} flexGrow={1}>
+          <Text fontWeight="bold" fontSize="2xl" mb={6}>
+            ⚛ Hey! I&apos;m Victor Prado Trujillo
           </Text>
-          <p>JavaScript | TypeScript | React | Next | SQL | NoSQL | RestAPI | GraphQl.</p>
+          <AnimatedGradientText>Frontend Developer</AnimatedGradientText>
         </Box>
         <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
-          <Box borderColor="whiteAlpha.800" borderWidth={2} borderStyle="solid" w="100px" h="100px" display="inline-block" borderRadius="full" overflow="hidden">
-            <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="100%" height="100%" />
+          <Box w="200px" h="200px" display="inline-block" borderRadius="full" overflow="hidden">
+            <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
+          </Box>
+          <Box borderRadius="lg" m={(8, 6)} p={3} textAlign="center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
+            JavaScript | React | Next | SQL | NoSQL | RestAPI | GraphQL.
           </Box>
         </Box>
-      </Box>
-
-      <Box borderRadius="lg" m={6} p={3} textAlign="center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
-        Hello world! I build stuff for the web.
       </Box>
 
       <Section delay={0.1}>
@@ -54,8 +52,11 @@ const Home = () => (
           About
         </Heading>
         <Paragraph>
-          I was always curious about how things are build but I never realize that one day I would be building for many people. <br></br> <br></br>Victor is a selftought student at Platzi and many
-          other resources around the web. Freelancer frontend developer who loves smooth animations and incredible UI. <br></br> <br></br> Started on the thech industry on 2019
+          I&apos;m a two-year experienced Freelance Frontend Developer on the React.js ecosystem and its Frameworks. also use interface design software. Personally, I enjoy developing intuitive
+          digital products for users.
+          <br></br> <br></br>
+          Actually, I keep learning about technologies that will lead me to be a Full Stack Web Developer. I&apos;m continuously updating myself as a self-thought student to be relevant in the modern
+          world and be able to work on teams.
         </Paragraph>
 
         <Heading as="h3" variant="section-title">
@@ -121,26 +122,21 @@ const Home = () => (
         <Box maxW="container.md" p={8}>
           <List>
             <ListItem>
-              <Link href="mailto:contact@vicprat.dev" target="_blank">
+              <Link href="mailto:hey@vicprat.dev" target="_blank">
                 <Button variant="ghost" colorScheme="blue" leftIcon={<IoMail />}>
-                  contact@vicprat.dev
+                  hey@vicprat.dev
                 </Button>
               </Link>
             </ListItem>
+
             <ListItem>
-              <Link href="https://twitter.com/vic_prat" target="_blank">
-                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoTwitter />}>
-                  @vic_prat
+              <Link href="https://www.linkedin.com/in/vicprat/" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoLinkedin />}>
+                  /in/vicprat
                 </Button>
               </Link>
             </ListItem>
-            <ListItem>
-              <Link href="https://instagram.com/vic_prat" target="_blank">
-                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoInstagram />}>
-                  @vic_prat
-                </Button>
-              </Link>
-            </ListItem>
+
             <ListItem>
               <Link href="https://github.com/vicprat" target="_blank">
                 <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoGithub />}>
@@ -148,10 +144,27 @@ const Home = () => (
                 </Button>
               </Link>
             </ListItem>
+
             <ListItem>
               <Link href="https://platzi.com/p/vicprat182/" target="_blank">
                 <Button variant="ghost" colorScheme="blue" leftIcon={<IoHeartSharp />}>
                   Platzi
+                </Button>
+              </Link>
+            </ListItem>
+
+            <ListItem>
+              <Link href="https://twitter.com/vic_prat" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoTwitter />}>
+                  @vic_prat
+                </Button>
+              </Link>
+            </ListItem>
+
+            <ListItem>
+              <Link href="https://instagram.com/vic_prat" target="_blank">
+                <Button variant="ghost" colorScheme="blue" leftIcon={<IoLogoInstagram />}>
+                  @vic_prat
                 </Button>
               </Link>
             </ListItem>
