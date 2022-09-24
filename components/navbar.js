@@ -61,6 +61,9 @@ const Navbar = (props) => {
                 <MenuItem as={Link} href="https://github.com/vicprat">
                   Github
                 </MenuItem>
+                <MenuItem as={Link} href="https://drive.google.com/file/d/1oyzn7TKgZ9N_skq1FsJMc39ezOafXBeu/view?usp=sharing">
+                  C.V.
+                </MenuItem>
               </MenuList>
             </Menu>
           </Box>
