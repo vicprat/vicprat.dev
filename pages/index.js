@@ -30,7 +30,7 @@ const ProfileImage = chakra(Image, {
 const Home = () => (
   <Layout>
     <Container maxW="4xl" mt={8}>
-      <Box height="70vh" display={{ md: 'flex' }} alignItems="center" justifyContent="center">
+      <Box height="80vh" display={{ md: 'flex' }} alignItems="center" justifyContent="center">
         <Box m={6} flexGrow={1}>
           <Text fontWeight="bold" fontSize="2xl" mb={6}>
             ⚛ Hey! I&apos;m Victor Prado Trujillo
