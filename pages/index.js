@@ -10,6 +10,13 @@ import { GridItem } from '../components/grid-item';
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoHeartSharp, IoMail, IoLogoLinkedin } from 'react-icons/io5';
 import thumbReact from '../public/images/projects/reactjs.jpg';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import VoxelDogLoader from '../components/voxel-dog-loader';
+
+const LazyVoxelDog = dynamic(() => import('../components/voxel-dog'), {
+  ssr: false,
+  loading: () => <VoxelDogLoader />,
+});
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href;
@@ -30,22 +37,26 @@ const ProfileImage = chakra(Image, {
 const Home = () => (
   <Layout>
     <Container maxW="4xl" mt={8}>
-      <Box height="80vh" display={{ md: 'flex' }} alignItems="center" justifyContent="center">
-        <Box m={6} flexGrow={1}>
-          <Text fontWeight="bold" fontSize="2xl" mb={6}>
-            ⚛ Hey! I&apos;m Victor Prado Trujillo
-          </Text>
-          <AnimatedGradientText>Frontend Developer</AnimatedGradientText>
-        </Box>
-        <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
-          <Box w="200px" h="200px" display="inline-block" borderRadius="full" overflow="hidden">
-            <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
+      <Box mt={24} mb={24}>
+        <Box display={{ md: 'flex' }}>
+          <Box flexGrow={1}>
+            <Text fontWeight="bold" mt={4} mb={4} fontSize="2xl">
+              ⚛ Hey! Soy Victor Prado Trujillo
+            </Text>
+            <AnimatedGradientText>Desarrollador Frontend</AnimatedGradientText>
+            <Box borderRadius="lg" mt={4} mb={4} p={4} textAlign="center" bg={useColorModeValue('blackAlpha.200', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
+              <Text>¡Hagamos de tus proyectos una realidad!</Text>
+            </Box>
           </Box>
-          <Box borderRadius="lg" m={(8, 6)} p={3} textAlign="center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
-            JavaScript | React | Next | SQL | NoSQL | RestAPI | GraphQL.
+          <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
+            <Box w="200px" h="200px" display="inline-block" borderRadius="full" overflow="hidden">
+              <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
+            </Box>
           </Box>
         </Box>
       </Box>
+
+      <LazyVoxelDog />
 
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
