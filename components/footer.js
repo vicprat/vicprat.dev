@@ -1,10 +1,18 @@
-import { Box } from '@chakra-ui/react';
+import ContactBtns from './contact-info';
+import { Box, Heading, Divider } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <Box align="center" opacity={0.4} fontSize="sm">
-      &copy; {new Date().getFullYear()} Victor Prado Trujillo. All Rights Reserved.
-    </Box>
+    <>
+      <Divider my={6} />
+      <Heading as="h3" variant="section-title" textAlign="center">
+        ☕ Tomemos un café
+      </Heading>
+      <ContactBtns />
+      <Box align="center" opacity={0.4} fontSize="sm">
+        &copy; {new Date().getFullYear()} Victor Prado Trujillo.
+      </Box>
+    </>
   );
 };
 

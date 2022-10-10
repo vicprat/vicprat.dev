@@ -1,4 +1,4 @@
-import { Box, keyframes, Text, useColorModeValue } from '@chakra-ui/react';
+import { keyframes, Text, useColorModeValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const animationKeyFrames = keyframes`
@@ -15,7 +15,7 @@ const AnimatedGradientText = ({ children }) => (
     bgSize="350%"
     bgGradient={useColorModeValue('linear-gradient(-45deg, #09009F, #71c5ee, #048A9A, #00FF95,)', 'linear-gradient(-45deg, #5598DE, #7F87FF, #F65AAD, #F65AAD)')}
     bgClip="text"
-    fontSize="4xl"
+    fontSize="2xl"
     fontWeight="extrabold"
   >
     {children}

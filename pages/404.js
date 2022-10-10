@@ -6,15 +6,17 @@ const NotFound = () => {
   return (
     <Container>
       <Box align="center" mt={16}>
-        <Heading as="h1">Not found</Heading>
+        <Text fontWeight="bold" fontSize="2xl">
+          No encontrado
+        </Text>
         <AnimatedGradientText>404</AnimatedGradientText>
-        <Text>The page you&apos;re looking for was not found.</Text>
-        <Text>⚙️ I&apos;m working on it.</Text>
+        <Text>La página que buscas aparentemente no existe.</Text>
+        <Text>⚙️ Estoy trabajando en mejorar tu experiencia aquí.</Text>
       </Box>
-      <Divider my={6} />
+
       <Box my={6} align="center">
         <NextLink href="/" passHref>
-          <Button colorScheme="blue">Return to home</Button>
+          <Button colorScheme="blue">Regresar a inicio</Button>
         </NextLink>
       </Box>
     </Container>
