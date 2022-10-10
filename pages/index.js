@@ -58,7 +58,7 @@ const Home = ({ blogPosts }) => {
   return (
     <Layout>
       <Container maxW="4xl" mt={8}>
-        <Box mt={16} p="auto, 0" textAlign="center">
+        <Box p="auto, 0" textAlign="center">
           <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
             <Box w="150px" h="150px" display="inline-block" borderRadius="full" overflow="hidden">
               <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
