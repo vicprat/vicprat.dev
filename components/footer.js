@@ -8,7 +8,7 @@ const Footer = () => {
       <Heading as="h3" variant="section-title" textAlign="center">
         ☕ Tomemos un café
       </Heading>
-      <ContactBtns />
+      <ContactBtns fontSize="md" colorScheme="blue" />
       <Box align="center" opacity={0.4} fontSize="sm">
         &copy; {new Date().getFullYear()} Victor Prado Trujillo.
       </Box>

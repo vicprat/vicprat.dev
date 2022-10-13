@@ -2,15 +2,15 @@ import { Text, Container, Heading, Box, Divider, useColorModeValue, chakra } fro
 import Layout from '../components/layouts/article';
 import Paragraph from '../components/paragraph';
 import AnimatedGradientText from '../components/animated-gradient-text';
-import { BioSection, BioYear } from '../components/bio';
 import Section from '../components/section';
 import Image from 'next/image';
 import ContactBtns from '../components/contact-info';
-import Card from '../components/card';
 import Btn from '../components/button';
-
 import { GraphQLClient, gql } from 'graphql-request';
-import CardItem from '../components/cardItem';
+
+// import Card from '../components/card';
+// import CardItem from '../components/cardItem';
+// import { BioSection, BioYear } from '../components/bio';
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
@@ -20,126 +20,119 @@ const graphcms = new GraphQLClient('https://api-us-west-2.hygraph.com/v2/cl91ni7
 
 const QUERY = gql`
   {
-    blogPosts {
+    homes {
       id
       title
-      datePublished
-      slug
-      content {
+      description {
+        html
+        raw
+      }
+      about {
         html
       }
       author {
         name
-        avatar {
-          url
-        }
       }
-      coverPhoto {
-        publishedAt
-        createdBy {
-          id
-        }
-        url
+      more {
+        html
+      }
+      studies {
+        html
+      }
+      stack {
+        html
       }
     }
   }
 `;
 
 export async function getStaticProps() {
-  const { blogPosts } = await graphcms.request(QUERY);
+  const { homes } = await graphcms.request(QUERY);
   return {
     props: {
-      blogPosts,
+      homes,
     },
     revalidate: 30,
   };
 }
-const Home = ({ blogPosts }) => {
-  return (
-    <Layout>
-      <Container maxW="4xl" mt={8}>
-        <Box p="auto, 0" textAlign="center">
-          <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
-            <Box w="150px" h="150px" display="inline-block" borderRadius="full" overflow="hidden">
-              <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
+
+const Home = ({ homes }) => (
+  <Layout>
+    <Container maxW="4xl" mt={8}>
+      {homes.map((home) => (
+        <>
+          <Box p="auto, 0" textAlign="center">
+            <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
+              <Box w="150px" h="150px" display="inline-block" borderRadius="full" overflow="hidden">
+                <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
+              </Box>
+            </Box>
+
+            <AnimatedGradientText fontSize="2xl"> {home.author.name}</AnimatedGradientText>
+            <Box flexGrow={1}>
+              <Text fontWeight="bold" fontSize="2xl">
+                {home.title}
+              </Text>
+              <Paragraph>
+                <div dangerouslySetInnerHTML={{ __html: home.description.html }}></div>
+              </Paragraph>
+
+              <ContactBtns fontSize="2xl" colorScheme="gray" />
+
+              <Box borderRadius="lg" mt={4} mb={4} p={4} textAlign="center" bg={useColorModeValue('blackAlpha.200', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
+                <Text>¡Hagamos tus proyectos realidad!</Text>
+              </Box>
             </Box>
           </Box>
 
-          <AnimatedGradientText> Victor Prado Trujillo</AnimatedGradientText>
-          <Box flexGrow={1}>
-            <Text fontWeight="bold" fontSize="2xl">
-              Desarrollador Frontend
-            </Text>
+          <Divider my={6} />
+
+          <Section delay={0.1}>
+            <Heading as="h3" variant="section-title">
+              Sobre mi
+            </Heading>
             <Paragraph>
-              Soy desarrollador con 2 años de experiencia trabajando con tecnologías web. Me considero una persona que se enfoca en resolver problemas con soluciones únicas y personalizadas, al crear
-              webs a la medida de cada proyecto.
+              <div dangerouslySetInnerHTML={{ __html: home.about.html }}></div>
             </Paragraph>
 
-            <ContactBtns />
+            <Heading as="h3" variant="section-title">
+              Formación
+            </Heading>
+            <Paragraph>
+              <div dangerouslySetInnerHTML={{ __html: home.studies.html }}></div>
+            </Paragraph>
+          </Section>
 
-            <Box borderRadius="lg" mt={4} mb={4} p={4} textAlign="center" bg={useColorModeValue('blackAlpha.200', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
-              <Text>¡Hagamos de tus proyectos una realidad!</Text>
-            </Box>
-          </Box>
-        </Box>
+          <Section delay={0.2}>
+            <AnimatedGradientText fontSize="2xl">Mi stack</AnimatedGradientText>
+            <Paragraph>
+              <div dangerouslySetInnerHTML={{ __html: home.stack.html }}></div>
+            </Paragraph>
+            <Btn href="/proyects">Proyectos</Btn>
+          </Section>
 
-        <Divider my={6} />
+          <Divider my={6}></Divider>
 
-        <Section delay={0.1}>
-          <Heading as="h3" variant="section-title">
-            About
-          </Heading>
-          <Paragraph>
-            I&apos;m a two-year experienced Freelance Frontend Developer on the React.js ecosystem and its Frameworks. also use interface design software. Personally, I enjoy developing intuitive
-            digital products for users.
-            <br></br> <br></br>
-            Actually, I keep learning about technologies that will lead me to be a Full Stack Web Developer. I&apos;m continuously updating myself as a self-thought student to be relevant in the
-            modern world and be able to work on teams.
-          </Paragraph>
+          <Section>
+            <Heading as="h3" variant="section-title">
+              Blog
+            </Heading>
 
-          <Heading as="h3" variant="section-title">
-            Philosophy
-          </Heading>
-          <Paragraph>Create and deliver amazing expiriences with intuitive solutions on the web.</Paragraph>
+            <Btn href="/blog">Posts recientes</Btn>
+          </Section>
 
-          <Btn href="/proyects">Proyectos</Btn>
-        </Section>
-
-        <Section delay={0.2}>
-          <Heading as="h3" variant="section-title">
-            What I do
-          </Heading>
-          <BioSection>
-            <BioYear>Frontend Development</BioYear>
-          </BioSection>
-          I use JavaScript to interact with users and reach their happines
-          <BioSection>
-            <BioYear>UX/UI Design</BioYear>
-          </BioSection>
-          I design fluid and beautiful interfaces for web. Great interfaces and experiences wins customers trust and helps you do your business well. I make sure your design is up to that standard.
-        </Section>
-
-        <Section>
-          <Heading as="h3" variant="section-title">
-            Blog
-          </Heading>
-
-          {blogPosts.map((post) => (
-            <CardItem title={post.title} author={post.author} coverPhoto={post.coverPhoto} key={post.id} datePublished={post.datePublished} slug={post.slug} />
-          ))}
-
-          <Btn href="/blog">Posts recientes</Btn>
-        </Section>
-
-        <Section delay={0.3}>
-          <Heading as="h3" variant="section-title">
-            More about me
-          </Heading>
-          <Paragraph>Ocasional photographer, rock climber, nature and dog lover.</Paragraph>
-        </Section>
-      </Container>
-    </Layout>
-  );
-};
+          <Section delay={0.3}>
+            <Heading as="h3" variant="section-title">
+              Más sobre mi
+            </Heading>
+            <Paragraph>
+              <div dangerouslySetInnerHTML={{ __html: home.more.html }}></div>
+            </Paragraph>
+          </Section>
+        </>
+      ))}
+    </Container>
+  </Layout>
+);
 
 export default Home;

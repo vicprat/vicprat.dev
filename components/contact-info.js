@@ -2,7 +2,7 @@ import { IoLogoTwitter, IoLogoGithub, IoMail, IoLogoLinkedin } from 'react-icons
 import { Button, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 
-const ContactBtns = () => {
+const ContactBtns = ({ fontSize, colorScheme }) => {
   const array = [
     {
       id: 1,
@@ -40,7 +40,7 @@ const ContactBtns = () => {
         return (
           <>
             <Link key={item.id} href={item.href} target="_blank">
-              <Button key={item.id} variant="ghost" leftIcon={item.icon} colorScheme="gray"></Button>
+              <Button key={item.id} variant="ghost" fontSize={fontSize} leftIcon={item.icon} colorScheme={colorScheme}></Button>
             </Link>
           </>
         );

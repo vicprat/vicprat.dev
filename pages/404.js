@@ -7,9 +7,9 @@ const NotFound = () => {
     <Container>
       <Box align="center" mt={16}>
         <Text fontWeight="bold" fontSize="2xl">
-          No encontrado
+          Not Found
         </Text>
-        <AnimatedGradientText>404</AnimatedGradientText>
+        <AnimatedGradientText fontSize="4xl">404</AnimatedGradientText>
         <Text>La página que buscas aparentemente no existe.</Text>
         <Text>⚙️ Estoy trabajando en mejorar tu experiencia aquí.</Text>
       </Box>
