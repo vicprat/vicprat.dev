@@ -6,6 +6,7 @@ import Section from '../components/section';
 import Image from 'next/image';
 import ContactBtns from '../components/contact-info';
 import Btn from '../components/button';
+import BgBox from '../components/bg-box';
 import { GraphQLClient, gql } from 'graphql-request';
 
 // import Card from '../components/card';
@@ -78,10 +79,7 @@ const Home = ({ homes }) => (
               </Paragraph>
 
               <ContactBtns fontSize="2xl" colorScheme="gray" />
-
-              <Box borderRadius="lg" mt={4} mb={4} p={4} textAlign="center" bg={useColorModeValue('blackAlpha.200', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
-                <Text>¡Hagamos tus proyectos realidad!</Text>
-              </Box>
+              <BgBox>¡Hagamos tus proyectos realidad!</BgBox>
             </Box>
           </Box>
 
