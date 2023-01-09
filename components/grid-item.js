@@ -6,9 +6,11 @@ import { Global } from '@emotion/react';
 export const GridItem = ({ children, href, title, thumbnail }) => (
   <Box w="100%" textAlign="center">
     <LinkBox cursor="pointer">
-      <Image src={thumbnail} alt={title} className="grid-item-thumbnail" placeholder="blur" loading="lazy" />
+      <Image src={thumbnail} alt={title} className="grid-item-thumbnail" placeholder="blur" blurDataURL={thumbnail} height="150px" width="300px" objectFit="cover" loading="lazy" />
       <LinkOverlay href={href} target="_blank">
-        <Text mt={2}>{title}</Text>
+        <Text fontWeight="semibold" mt={2}>
+          {title}
+        </Text>
       </LinkOverlay>
       <Text fontSize={14}>{children}</Text>
     </LinkBox>

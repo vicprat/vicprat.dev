@@ -1,4 +1,4 @@
-import { Text, Container, Heading, Box, Divider, useColorModeValue, chakra } from '@chakra-ui/react';
+import { Text, Container, Heading, Box, Divider, chakra, Flex } from '@chakra-ui/react';
 import Layout from '../components/layouts/article';
 import Paragraph from '../components/paragraph';
 import AnimatedGradientText from '../components/animated-gradient-text';
@@ -7,11 +7,11 @@ import Image from 'next/image';
 import ContactBtns from '../components/contact-info';
 import Btn from '../components/button';
 import BgBox from '../components/bg-box';
+import Stack from '../components/tech_stack';
 import { GraphQLClient, gql } from 'graphql-request';
 
-// import Card from '../components/card';
-// import CardItem from '../components/cardItem';
-// import { BioSection, BioYear } from '../components/bio';
+import Posts from './blog';
+import React from 'react';
 
 const ProfileImage = chakra(Image, {
   shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
@@ -26,7 +26,6 @@ const QUERY = gql`
       title
       description {
         html
-        raw
       }
       about {
         html
@@ -59,21 +58,25 @@ export async function getStaticProps() {
 
 const Home = ({ homes }) => (
   <Layout>
-    <Container maxW="4xl" mt={8}>
+    <Box mt={8} p="6" bg="blackAlpha.50" borderRadius="xl">
       {homes.map((home) => (
-        <>
-          <Box p="auto, 0" textAlign="center">
-            <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
-              <Box w="150px" h="150px" display="inline-block" borderRadius="full" overflow="hidden">
-                <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="200px" height="200px" />
+        <React.Fragment key={home.id}>
+          <Box py="12" px="4" textAlign="center">
+            <Flex gap="6" flexWrap="wrap" justifyContent="center">
+              <Box>
+                <Box w="120px" h="120px" display="inline-block" borderRadius="full" overflow="hidden">
+                  <ProfileImage src="/images/vicprat.jpg" alt="Profile image" borderRadius="full" width="150px" height="150px" />
+                </Box>
               </Box>
-            </Box>
 
-            <AnimatedGradientText fontSize="2xl"> {home.author.name}</AnimatedGradientText>
+              <Box px={8} alignSelf="center">
+                <AnimatedGradientText fontSize="2xl"> {home.author.name}</AnimatedGradientText>
+                <Text fontWeight="bold" fontSize="2xl">
+                  {home.title}
+                </Text>
+              </Box>
+            </Flex>
             <Box flexGrow={1}>
-              <Text fontWeight="bold" fontSize="2xl">
-                {home.title}
-              </Text>
               <Paragraph>
                 <div dangerouslySetInnerHTML={{ __html: home.description.html }}></div>
               </Paragraph>
@@ -100,23 +103,13 @@ const Home = ({ homes }) => (
               <div dangerouslySetInnerHTML={{ __html: home.studies.html }}></div>
             </Paragraph>
           </Section>
+          <Stack />
 
           <Section delay={0.2}>
-            <AnimatedGradientText fontSize="2xl">Mi stack</AnimatedGradientText>
             <Paragraph>
               <div dangerouslySetInnerHTML={{ __html: home.stack.html }}></div>
             </Paragraph>
             <Btn href="/proyects">Proyectos</Btn>
-          </Section>
-
-          <Divider my={6}></Divider>
-
-          <Section>
-            <Heading as="h3" variant="section-title">
-              Blog
-            </Heading>
-
-            <Btn href="/blog">Posts recientes</Btn>
           </Section>
 
           <Section delay={0.3}>
@@ -127,9 +120,18 @@ const Home = ({ homes }) => (
               <div dangerouslySetInnerHTML={{ __html: home.more.html }}></div>
             </Paragraph>
           </Section>
-        </>
+
+          <Divider my={6}></Divider>
+        </React.Fragment>
       ))}
-    </Container>
+      <Section delay={0.4}>
+        <Heading as="h3" variant="section-title">
+          Blog
+        </Heading>
+        {/* <Posts /> */}
+        <Btn href="/blog">Posts Recientes</Btn>
+      </Section>
+    </Box>
   </Layout>
 );
 

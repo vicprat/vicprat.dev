@@ -13,7 +13,6 @@
   "author": "Victor Prado Trujillo",
   "license": "MIT",
   "dependencies": {
-    "@apollo/client": "^3.7.0",
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.9.0",
@@ -24,10 +23,10 @@
     "next": "^12.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "three": "^0.139.2"
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.5.1",
     "eslint": "^8.13.0",
     "eslint-config-next": "^12.1.5",
     "prettier": "^2.6.2"
